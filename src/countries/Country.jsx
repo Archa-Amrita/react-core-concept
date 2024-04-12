@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export default function Country({country, handleVisitedCountries}){
-    console.log(country);
+export default function Country({country, handleVisitedCountries, handleVisitedFlags}){
+    // console.log(country);
     const{name, flags, population, area} = country;
     
     const[visited, setVisited] = useState(false);
@@ -17,6 +17,7 @@ export default function Country({country, handleVisitedCountries}){
             <p>Population: {population}</p>
             <p>Area: {area}kms^2</p>
             <button onClick={()=>handleVisitedCountries(country)}>Mark Visited</button>
+            <button onClick={()=>handleVisitedFlags(country.flags.png)}>Mark Flag</button>
             <button onClick={handleVisited}>Visited</button>
             {
                 visited ? 'I visited this country.' : '<3'
